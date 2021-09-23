@@ -22,3 +22,4 @@ Once 10 dots are clickes/times logged, the game is over. The user is presented w
 
 Possible Stretch:
 
+Preserving averages, "User profile", randomized shapes and colors for another layer of difficulty
