@@ -9,7 +9,7 @@ bestTime = 0;
 avgTime = 0;
 canvas = document.getElementById('gameCanvas');
 ctx = canvas.getContext('2d');
-let turns = 0;
+turns = 0;
 
 now = Date.now()
 // then = (getTime() - now)
@@ -19,7 +19,10 @@ function reactionTrainer() {
         return Math.floor(Math.random() * piecePos);
     }
     function storeBestTime() {
-        if(bestTime == 0){
+        if(lastTime<0){
+            bestTime = 0
+            lastTime = 0
+        } else if(bestTime == 0){
             bestTime = lastTime
         } else if( lastTime < bestTime){
             bestTime = lastTime
@@ -53,19 +56,20 @@ function reactionTrainer() {
         myGamePiece.arc(getRandomInt(985), getRandomInt(547.5), 20, 0, 2 * Math.PI);
         ctx.fillStyle = 'red';
         ctx.fill(myGamePiece);
+        // rightNow = Date.now();
     }
-        function updatePlayArea() {
+    function updatePlayArea() {
         playArea.clear();   
         buildTarget();
     }   
+    function clearBoard() {
+        playArea.clear();
+        yeet = setTimeout(buildTarget, 900)
+    }   
     canvas.addEventListener('click', function(event) {
-        rightNow = Date.now()
+        rightNow = Date.now() - 900
         timeDifferential = rightNow - backThen
-        // while(rightNow < getRandomInt(3000)){
-        //     playArea.clear();
-        // }
-        // turns = turns + 1
-        setTimeout(updatePlayArea(), 3000)
+        clearBoard();
         storeBestTime();
         lastTime = timeDifferential;
         backThen = Date.now();
@@ -73,6 +77,7 @@ function reactionTrainer() {
         document.getElementById("last-score-container").innerHTML = lastTime;
         storeBestTime();
         document.getElementById("best-score-container").innerHTML = bestTime;
+        clearTimeout(timerVar)
     }); 
     function startGame() {
         timerRestart();
@@ -83,6 +88,3 @@ function reactionTrainer() {
     startGame();
 
 }
-
-       
-
