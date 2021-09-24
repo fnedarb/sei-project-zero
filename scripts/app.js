@@ -17,7 +17,7 @@ function aimTrainer() {
     }
     function timerDecrease(i) {
         setTimeout(() => {timer--, 1000});
-        };
+    };
 
     function timerStart() {
         for(let i=60; i>0; i--){
@@ -40,22 +40,31 @@ function aimTrainer() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
     }
-    function buildTarget(){
+    function buildTarget() {
         let myGamePiece = new Path2D();
         myGamePiece.arc(getRandomInt(985), getRandomInt(547.5), 20, 0, 2 * Math.PI);
         ctx.fillStyle = 'red';
         ctx.fill(myGamePiece);
     }
-     function updatePlayArea() {
+
+
+    function updatePlayArea() {
         playArea.clear();   
         buildTarget();
-    }    
+    }   
+    canvas.addEventListener('click', function(event) {
+        updatePlayArea()
+    }); 
     function startGame() {
         timerRestart();
         playArea.start();
         updatePlayArea();
         console.log(timer)
     }
-startGame();
-}        
+    startGame();
+    // canvas.addEventListener('click', function() { }, false);
+    // canvas.onclick(console.log('hi'))
+}
+
+       
 aimTrainer();
