@@ -70,14 +70,14 @@ function reactionTrainer() {
         rightNow = Date.now() - 900
         timeDifferential = rightNow - backThen
         clearBoard();
-        storeBestTime();
+        // storeBestTime();
         lastTime = timeDifferential;
         backThen = Date.now();
         console.log(lastTime);
-        document.getElementById("last-score-container").innerHTML = lastTime;
         storeBestTime();
+        document.getElementById("last-score-container").innerHTML = lastTime;        
         document.getElementById("best-score-container").innerHTML = bestTime;
-        clearTimeout(timerVar)
+        // clearTimeout(timerVar)
     }); 
     function startGame() {
         timerRestart();
