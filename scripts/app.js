@@ -35,9 +35,14 @@ let playArea = {
       this.context = this.canvas.getContext("2d");
       document.body.insertBefore(this.canvas, document.body.childNodes[0]);
       myGamePiece = new component(15, 15, "blue", getRandomInt(985), getRandomInt(547.5));
+    //   this.interval = setInterval(updateGameArea, 20);
+  },
+  clear : function() {
+    this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+  }
 
 }
-}
+
 function component(width, height, color, x, y) {
     this.width = width;
     this.height = height;
@@ -49,6 +54,10 @@ function component(width, height, color, x, y) {
         ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 }
+function updatePlayArea() {
+    playArea.clear();
+    myGamePiece.update();
+  }
 function startGame() {
     timerRestart();
     playArea.start();
