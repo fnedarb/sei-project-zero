@@ -1,12 +1,18 @@
-* {
-    
-}
+
 body{
+    background-color: #36454F;
     display: flex;
     justify-content: center;
     align-items: center;
-
+    flex-direction: column;
+}
+.score-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
 }   
 canvas { 
-border: 5px solid black; 
+    background-color: white;
+    border: 5px solid black; 
 }
