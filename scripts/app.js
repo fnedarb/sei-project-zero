@@ -1,12 +1,17 @@
 var myGamePiece;
+// timerDisplay = document.getElementById("gameTimer")
 timer = 0;
+lastTimeDisplay = document.getElementById("last-score")
 lastTime = 0;
+bestTimeDisplay = document.getElementById("best-score")
 bestTime = 0;
 avgTime = 0;
 canvas = document.getElementById('gameCanvas');
 ctx = canvas.getContext('2d');
 
-function aimTrainer() {
+now = Date.now()
+// then = (getTime() - now)
+function reactionTrainer() {
     function getRandomInt(piecePos) {
         return Math.floor(Math.random() * piecePos);
     }
@@ -28,9 +33,7 @@ function aimTrainer() {
     function timerRestart() {
         timer = 60;
     };
-        
-    console.log(timer)  
-
+    
     let playArea = {
         canvas : document.getElementById("gameCanvas"),
         start : function() {
@@ -47,24 +50,25 @@ function aimTrainer() {
         ctx.fill(myGamePiece);
     }
 
-
     function updatePlayArea() {
         playArea.clear();   
         buildTarget();
     }   
     canvas.addEventListener('click', function(event) {
-        updatePlayArea()
+        setTimeout(updatePlayArea(), 8000)
+        storeBestTime();
     }); 
     function startGame() {
         timerRestart();
         playArea.start();
         updatePlayArea();
-        console.log(timer)
-    }
+        timerStart();
+        // timerDisplay.append(timer)
+        lastTimeDisplay.append(best-score)
+        }
     startGame();
-    // canvas.addEventListener('click', function() { }, false);
-    // canvas.onclick(console.log('hi'))
+    console.log(now)
 }
 
        
-aimTrainer();
+

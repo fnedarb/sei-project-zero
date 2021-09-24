@@ -1,10 +1,16 @@
 
 body{
+    font-family: 'Lato', sans-serif;
     background-color: #36454F;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+.button-wrapper{
+    display: flex;
+    justify-content: center;
+
 }
 .score-wrapper{
     display: flex;
