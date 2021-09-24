@@ -12,7 +12,7 @@ ctx = canvas.getContext('2d');
 turns = 0;
 
 now = Date.now()
-// then = (getTime() - now)
+
 function reactionTrainer() {
     backThen = Date.now()
     function getRandomInt(piecePos) {
