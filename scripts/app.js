@@ -1,22 +1,27 @@
 var myGamePiece;
 // timerDisplay = document.getElementById("gameTimer")
+var yeet;
 timer = 0;
-lastTimeDisplay = document.getElementById("last-score")
+lastTimeDisplay = document.getElementById("last-score-container")
 lastTime = 0;
-bestTimeDisplay = document.getElementById("best-score")
+bestTimeDisplay = document.getElementById("best-score-container")
 bestTime = 0;
 avgTime = 0;
 canvas = document.getElementById('gameCanvas');
 ctx = canvas.getContext('2d');
+let turns = 0;
 
 now = Date.now()
 // then = (getTime() - now)
 function reactionTrainer() {
+    backThen = Date.now()
     function getRandomInt(piecePos) {
         return Math.floor(Math.random() * piecePos);
     }
     function storeBestTime() {
-        if(lastTime> 0 && lastTime<bestTime){
+        if(bestTime == 0){
+            bestTime = lastTime
+        } else if( lastTime < bestTime){
             bestTime = lastTime
         }
     }
@@ -49,25 +54,34 @@ function reactionTrainer() {
         ctx.fillStyle = 'red';
         ctx.fill(myGamePiece);
     }
-
-    function updatePlayArea() {
+        function updatePlayArea() {
         playArea.clear();   
         buildTarget();
     }   
     canvas.addEventListener('click', function(event) {
-        setTimeout(updatePlayArea(), 8000)
+        rightNow = Date.now()
+        timeDifferential = rightNow - backThen
+        // while(rightNow < getRandomInt(3000)){
+        //     playArea.clear();
+        // }
+        // turns = turns + 1
+        setTimeout(updatePlayArea(), 3000)
         storeBestTime();
+        lastTime = timeDifferential;
+        backThen = Date.now();
+        console.log(lastTime);
+        document.getElementById("last-score-container").innerHTML = lastTime;
+        storeBestTime();
+        document.getElementById("best-score-container").innerHTML = bestTime;
     }); 
     function startGame() {
         timerRestart();
         playArea.start();
         updatePlayArea();
-        timerStart();
-        // timerDisplay.append(timer)
-        lastTimeDisplay.append(best-score)
+        // timerStart();
         }
     startGame();
-    console.log(now)
+
 }
 
        

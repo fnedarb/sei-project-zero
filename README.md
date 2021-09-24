@@ -11,7 +11,7 @@ Prompt user for their name and display it above the score screen
 
 After 3 seconds, a dot at a randomly generated position appears on the screen
 
-A timer begins as the dot appears. The amount of time it takws the user to click the dot is logged
+A timer begins as the dot appears. The amount of time it takes the user to click the screen is logged
 
 An average of the user's reaction time and the last recorded time are displayed
 
@@ -23,3 +23,7 @@ Once 10 dots are clickes/times logged, the game is over. The user is presented w
 Possible Stretch:
 
 Preserving averages, "User profile", randomized shapes and colors for another layer of difficulty
+
+Unsolved Issues: 
+
+synchronous timers created upon "circle generation", scoring
